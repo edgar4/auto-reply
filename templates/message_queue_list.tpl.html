@@ -1,0 +1,70 @@
+<link href="../style.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript">
+{literal}
+function delete_record()
+{  {/literal}
+  if (confirm("{$smarty.const.CONFIRM_DELETE_MESSAGE}"))
+       {literal}
+      {
+      return true;
+	  }
+	  else
+	  return false;
+}
+{/literal}
+</script>
+<br>
+<table width="70%"  border="0" align="center" cellpadding="0" cellspacing="0" class="tblborder" >
+  <tr>
+    <td class="tblHead" scope="row"><table width="100%"  border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+          <td scope="row"><table width="100%"  border="0" align="center" cellpadding="3" cellspacing="1">
+              <tr>
+                <td colspan="8" scope="row" height="25" class="tblHead" align="center"><strong>{$smarty.const.TITLE_MESSAGE_QUEUE}</strong></td>
+              </tr>
+              <tr>
+                <td colspan="8" scope="row" height="10"  align="center"><div align="left"><font color="#000000"><a href="message.new.add.php?sec=message_queue.manage"><strong>{$smarty.const.ADD_NEW_MESSAGES}</strong></a></font></div></td>
+              </tr>
+              <tr class="tblHead">
+                <td align="center" height="20">{$smarty.const.SNO}</td>
+                <td width="50%" align="center">{$smarty.const.SUBJECT}</td>
+                <td width="10%" align="center">{$smarty.const.DELAY}</td>
+                <td width="10%" align="center">{$smarty.const.MESSAGE_SENT}</td>
+                <td width="10%" align="center">{$smarty.const.MESSAGE_READ}</td>
+                <td width="10%" align="center">{$smarty.const.READ_ONLINE}</td>
+                <td width="10%" align="center">{$smarty.const.EDIT}</td>
+                <td width="10%" align="center">{$smarty.const.DELETE}</td>
+              </tr>
+			  {if $messagesrow ne ""}
+			  {section name=j loop=$messagesrow}
+              <tr  bgcolor="{cycle values="#ffffD6,#f1f1f1"}">
+                <td scope="row"><font color="#000000">{$startposition++}</font></td>
+                <td><font color="#000000">{$messagesrow[j][2]}</font></td>
+                <td align="center"><font color="#000000">{$messagesrow[j][5]}</font></td>
+                <td align="center"><font color="#000000">{$messagesrow[j][7]}</font></td>
+                <td align="center"><font color="#000000">{$messagesrow[j][8]}</font></td>
+                <td align="center"><font color="#000000">{$messagesrow[j][9]}</font></td>
+                <td align="center"><font color="#000000"><a href="message.update.php?sec=message_queue.manage&msgid={$messagesrow[j][0]}"><img src="images/editlogo.png" width="16" height="16" border="0"></a></font></td>
+                <td align="center"><font color="#000000"><a href="message.delete.php?sec=message_queue.manage&msgid={$messagesrow[j][0]}" onClick='return delete_record()'><img src="images/drop.png" width="16" height="16" border="0"></a></font></td>
+              </tr>
+              
+			  {/section}
+              {/if}
+                <tr>
+                <td scope="row">&nbsp;</td>
+                <td></td>
+                <td colspan="6"align="right">
+                <font color="#000000"><strong>{$smarty.const.PAGE_NO}</strong></font>
+                {section name=m loop=$totalpages} 
+                <font color="#000000"><a href="message_queue.manage.php?page={$var}&sec=message_queue.manage"><strong>{$var++}<strong></a></font>
+                {/section}
+                  </td>
+              </tr>
+		    </table>
+          </td>
+        </tr>
+    </table></td>
+  </tr>
+  <input type="hidden" name="msgid" value="{$messagesrow[j][0]}">
+  <input type="hidden" name="sec" value="message_queue.manage">
+</table>

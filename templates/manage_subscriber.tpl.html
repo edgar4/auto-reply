@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<link href="style.css" rel="stylesheet" type="text/css" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>{$smarty.const.AUTORESPONDER}::{$smarty.const.TITLE_MANAGE_SUBSCRIBERS}</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript">
+{literal}
+function delete_record()
+{
+    {/literal}
+  if (confirm("{$smarty.const.CONFIRM_DELETE_FIELD}"))
+    {literal}
+  {
+      return true;
+	  }
+	  else
+	  return false;
+}
+function  search_record()
+{
+if((document.manage_subscriber.name.value=="")&&(document.manage_subscriber.email.value==""))
+{
+{/literal}
+alert("{$smarty.const.ATLEAST_ONE_PARAMETER_IN_SEARCH}");
+{literal}
+return  false;
+}
+else
+document.manage_subscriber.submit();
+
+}
+function reset_search()
+{
+document.manage_subscriber.action="manage_subscriber.php?sec=manage_subscriber";
+if((document.manage_subscriber.name.value!="")||(document.manage_subscriber.email.value!=""))
+{
+}
+else
+document.manage_subscriber.submit();
+}
+
+
+{/literal}
+</script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3">{include file="top.tpl.html"}</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top">{include file="campaign.tpl.html"}</td>
+    <td width="100%" valign="top" align="left"><table width="100%" align="center"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>{include file="menu.tpl.html"}</td>
+      </tr>
+      <tr>
+        <td height="27" align="center" valign="top"><!-- InstanceBeginEditable name="EditRegion3" -->
+          <div align="left">
+            <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <th scope="col"><div align="left">
+                  <form name="manage_subscriber" action="manage_subscriber.php?sec=manage_subscriber" method="get">
+                    <br>
+                    <table width="50%" cellpadding="2" border="0" cellspacing="2" align="center" class="tblborder">
+                      <tr>
+                        <td height="25" colspan="2" class="tblHead"><div align="center"><strong>Search Subscriber </strong></div></td>
+                        </tr>
+                      <tr>
+                        <td width="30%"  align="right"><font color="#000000">{$smarty.const.NAME}:</font></td>
+                        <td align="left"><font color="#000000">
+                          <input name="name" value="{$name}" type="text" id="name">
+                        </font></td>
+                      </tr>
+                      <tr>
+                        <td  align="right"><font color="#000000">{$smarty.const.EMAIL}:</font></td>
+                        <td  align="left"><font color="#000000">
+                          <input name="email" value="{$email}" type="text" id="email">
+                        </font></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+						<td></td>
+                         
+                      </tr>
+                      <tr>
+                        <td height="30" colspan="2"  align="center"><font color="#000000">
+                          <input name="search" type="button" value="{$smarty.const.SEARCH_BUTTON}" onClick="javascript:search_record();">
+                          <input type="reset" name="reset" value="{$smarty.const.RESET_SEARCH}" onclick="javascript:reset_search();">
+</font></td>               
+                      </tr>
+                    </table>
+					
+					<input type="hidden" name="sec" value="manage_subscriber">
+                    <input type="hidden" name="search" value="search">
+                       
+					<div align="center" class="campheading">
+					 {if $norecord neq ""}{$smarty.const.ERROR_MESSGE_NO_SUBSCRIBER_FOUND}{/if} 
+					 
+					</div>
+                  <br>
+					<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                      <th scope="col" align="center"><table width="70%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td class="tblHead"><table width="100%"  border="0" cellspacing="1" cellpadding="0">
+                              <tr>
+                                <td bgcolor="#FFFFFF"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1">
+                                    <tr>
+                                      <td  height="20" colspan="9"><a href="subscribers.php?sec=manage_subscriber"><strong>{$smarty.const.ADD_NEW_SUBSCRIBERS}</strong></a></td>
+                                      </tr>
+                                    <tr class="tblHead">
+                                      <td  height="20">{$smarty.const.SNO}</td>
+                                      <td  align="center">{$smarty.const.NAME}</td>
+                                      <td  align="center">{$smarty.const.EMAIL}</td>
+									  <td  align="center">{$smarty.const.STATUS}</td>
+									  <td  align="center">{$smarty.const.JOIN_DATE}</td>
+                                      
+                                      <td  align="center">{$smarty.const.VIEW_MAILS}</td>
+                                      
+                                      <td  align="center">{$smarty.const.EDIT}</td>
+                                      <td  align="center">{$smarty.const.DELETE}</td>
+                                    </tr>
+              
+                        {section name=j loop=$values} 
+         
+              <tr bgcolor="{cycle values="#ffffD6,#f1f1f1"}">
+                <td><font color="#000000">{$startposition++}</font></td>
+                <td><font color="#000000">{$smnameemail[j][1]}</font></td>
+                <td><font color="#000000">{$smnameemail[j][2]}</font></td>
+				<td align="center"><font color="#000000">{$smnameemail[j][3]}</font></td>
+				<td><font color="#000000">{$smnameemail[j][4]}</font></td>
+               
+                <td><a href= "message_summary.php?id={$smnameemail[j][0]}&sec=manage_subscriber"><img src="images/EMAIL.JPG" width="20" height="20" border="0"></a></td>
+                
+                <td><a href= "subscribers.update.php?id={$smnameemail[j][0]}&sec=manage_subscriber"><img src="images/editlogo.png" width="16" height="16" border="0"></a> </td>
+                <td><a href= "subscribers.delete.php?id={$smnameemail[j][0]}&sec=manage_subscriber" onClick="return delete_record()"><img src="images/drop.png" width="16" height="16" border="0"></a></td>
+                {/section} </tr>
+              <tr>
+                <td align="right" colspan="9">   
+                   <font color="#000000"><strong>{$smarty.const.PAGE_NO}</strong></font>
+                 {section name=m loop=$totalpages} 
+                 <a href="manage_subscriber.php?page={$var}&sec=manage_subscriber"><strong>{$var++}</strong></a>
+                  {/section}
+                  </td>
+                
+             
+             </tr>
+                                </table></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                      </table></th></tr>
+					<tr><td></td></tr>	
+                    </table>
+                    <p>&nbsp;                    </p>
+                  </form>
+                </div></th>
+              </tr>
+            </table>
+			
+			
+            <br>
+		    </div>
+        <!-- InstanceEndEditable --></td>
+      </tr>
+    </table></td>
+    <td width="0%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">{include file="bottom.tpl.html"}</td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

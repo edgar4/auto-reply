@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<link href="style.css" rel="stylesheet" type="text/css" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>{$smarty.const.AUTORESPONDER}::{$smarty.const.TITLE_LINKS_UPDATE_PAGE}</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3">{include file="top.tpl.html"}</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top">{include file="campaign.tpl.html"}</td>
+    <td width="100%" valign="top" align="left"><table width="100%" align="center"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>{include file="menu.tpl.html"}</td>
+      </tr>
+      <tr>
+        <td height="27" align="center" valign="top"><!-- InstanceBeginEditable name="EditRegion3" -->
+		{literal}
+		<script type="text/javascript" language="javascript">
+		
+		
+		</script>
+		{/literal}
+		     <form name="message_summary_frm" method="post" action="" >
+           <br>
+		    <table width="70%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="tblHead" scope="row"><table width="100%"  border="0" cellspacing="1" cellpadding="1">
+                  <tr bgcolor="#FFFFFF">
+                    <td scope="row"><table width="100%"  border="0" cellspacing="1" cellpadding="1">
+                      <tr>
+                        <td colspan="5" class="tblHead" scope="row" height="25" align="center"><strong>Message Summary</strong></td>
+                        </tr>
+                      <tr>
+                        <td colspan="5" scope="row"><table width="50%"  border="0" align="center" cellpadding="2" cellspacing="2" class="tblborder">
+                          <tr>
+                            <td  align="left"><strong><font color="#000000">{$smarty.const.NAME}</font></strong></div></td>
+                            <td align="left"><font color="#000000">{$subs_name}</font></td>
+                          </tr>
+                          <tr>
+                            <td align="left"><strong><font color="#000000">{$smarty.const.EMAIL}</font></strong></td>
+                            <td align="left" ><font color="#000000">{$subs_email}</font></td>
+                          </tr>
+                        </table></td>
+                        </tr>
+                     <tr class="tblHead">
+                       <td scope="row" align="center" height="20">{$smarty.const.SNO}</td>
+                        <td scope="row" align="center">{$smarty.const.SUBJECT}</td>
+                        <td scope="row" align="center">{$smarty.const.DATE_SEND}</td>
+                        <td scope="row"  align= "center">{$smarty.const.MESSAGE_TYPE}</td>
+                        
+                      </tr>
+                      {section name=i loop=$msgdetails}
+                      <tr bgcolor="{cycle values="#ffffD6,#f1f1f1"}">
+                        <td scope="row"><font color="#000000">{$startposition++}</font></td>
+                        <td scope="row"><font color="#000000"><a href="message_single_details.php?id={$msgdetails[i][3]}&type={$msgdetails[i][6]}&email={$msgdetails[i][2]}&campid={$msgdetails[i][1]}&date={$msgdetails[i][4]}&sec=manage_subscriber">{$msgdetails[i][9]}</a></font></td>
+                        <td scope="row"><font color="#000000">{$msgdetails[i][4]}</font></td>
+                        <td scope="row"><font color="#000000">{$msgdetails[i][6]}</font></td>
+                       
+                      </tr>
+                       {/section}
+                      
+                      <tr>
+                        <td colspan="5" scope="row" align="center"><font color="#000000"><strong><a href="manage_subscriber.php?sec=manage_subscriber"><img src="images/BACK.JPG" width="46" height="20" border="0"></a></strong></font></td>
+                     </tr>
+                   <tr><td colspan="5"align="right">
+                
+                 <font color="#000000"><strong>{$smarty.const.PAGE_NO}</strong></font>
+                {section name=m loop=$totalpages} 
+                <font color="#000000"><a href="message_summary.php?id={$subsid}&page={$var}&sec=manage_subscriber"><strong>{$var++}<strong></a></font>
+                {/section}
+                  </td></tr>
+                    </table></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table>          
+           <input type="hidden" name="sec" value="manage_subscriber">
+		   
+          </form>
+        <!-- InstanceEndEditable --></td>
+      </tr>
+    </table></td>
+    <td width="0%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">{include file="bottom.tpl.html"}</td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

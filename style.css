@@ -1,0 +1,115 @@
+th
+{
+	font-family:Tahoma, Verdana, Arial;
+}
+td {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 12px;
+}
+
+.tblborder
+{
+    BORDER-RIGHT: #006699 1px solid;
+    BORDER-TOP: #006699 1px solid;
+    BORDER-LEFT: #006699 1px solid;
+    BORDER-BOTTOM: #006699 1px solid;
+   /* BACKGROUND-COLOR: #ffffff;*/
+}
+
+.light
+{
+	color:			white;
+	text-decoration: none;
+}
+
+.tblheading
+{
+ 	font-family: Tahoma, Verdana, Arial;
+ 	font-weight:bold;
+ 
+    /*BORDER-RIGHT: #006699 1px solid;
+    BORDER-TOP: #006699 1px solid;
+    BORDER-LEFT: #006699 1px solid;
+    BORDER-BOTTOM: #006699 1px solid;
+    BACKGROUND-COLOR: #ffffff;*/
+ 
+}
+.campheading
+{
+ font-family:Tahoma, Verdana, Arial;
+ font-weight:bold;
+ color:#FF0000
+
+}
+.mainheadings
+{
+ font-family:Tahoma, Verdana, Arial;
+ font-size: 15px;
+ font-weight:bold;
+ color:#0033FF;
+
+}
+.tblHead {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 12px;
+	background-color: #7A86AE;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+.tblHeadLight
+{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 12px;
+	background-color: #BDDDEB;
+	font-weight: normal;
+	color: #000000;
+
+}
+
+body {
+	background-image: url(images/bg.jpg);
+	margin-top:0;
+	margin-left:0;
+	margin-right:0;
+	margin-bottom:0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+.sidemenubg
+{
+	background-color: #eeeeee;    
+}
+.sidemenu
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    TEXT-DECORATION: none
+}
+.sidemenubg A
+{
+	COLOR: #000000;
+	 TEXT-DECORATION: none
+	
+}
+.sidemenubg A:hover
+{
+    COLOR: #53639A;
+	text-decoration: underline;
+}.select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666699;
+	border: 1px solid #e1e1e1;
+}
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+	font-size: 12px;
+	color: #990000;
+}
+
+
+

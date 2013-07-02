@@ -1,0 +1,263 @@
+<head>
+<link href="../style.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript">
+{literal}
+function isWords_1(argvalue) 
+{
+  var onechar = "";
+  for (var n = 0; n < argvalue.length; n++) 
+  {
+    onechar = argvalue.substring(n, n+1);
+    if ((onechar < "A" ||onechar > "Z") && (onechar < "a" || onechar > "z") &&
+         (onechar != " ")  (onechar != "-") && (onechar != "_") &&  (onechar < "0" || onechar > "9") ) 
+	{
+      return false;
+    }
+  }
+return true;
+}
+
+function isWords(argvalue) 
+{
+  var onechar = "";
+  for (var n = 0; n < argvalue.length; n++) 
+  {
+    onechar = argvalue.substring(n, n+1);
+    if ((onechar < "A" ||onechar > "Z") && (onechar < "a" || onechar > "z") &&
+         (onechar != " ") && (onechar != "-") && (onechar != "_") &&  (onechar < "0" || onechar > "9") ) 
+	{
+      return false;
+    }
+  }
+return true;
+}
+function isInteger(s){
+	var i;
+    for (i = 0; i < s.length; i++){   
+        // Check that current character is number.
+        var c = s.charAt(i);
+        if (((c < "0") || (c > "9"))) return false;
+    }
+    // All characters are numbers.
+    return true;
+}
+function validateEmail(affiliate_email)
+	{
+   	    mErr = "";
+		if (validEmail(affiliate_email) == false || validEmail(affiliate_email) == null || validEmail(affiliate_email) == ""){
+  		mErr += "Enter Valid Email\n";
+	}
+		if (mErr=='')
+			return true;
+		else
+		{
+			 return false;
+		}
+	}
+
+	function validEmail(email)
+ 	{
+		 var exclude=/[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/;
+		 var checkend=/\.[a-zA-Z]{2,4}$/;
+		
+		 if((email.search(exclude) != -1) || (email.search(checkend) == -1))        return false;
+		
+		 atPos = email.indexOf("@",0);
+		 pPos1 = email.indexOf(".",0);
+		 periodPos = email.indexOf(".",atPos);
+		 pos1 = pPos1;
+		 pos2 = 0;
+		 while (pos2 > -1)
+		 {
+			  pos2 = email.indexOf(".",pos1+1);
+			  if (pos2 == pos1+1)  return false;
+			  else  pos1 = pos2;
+		 }
+		 if (atPos == -1)        return false;
+		 if (atPos == 0)        return false;
+		 if (pPos1 == 0)        return false;
+		 if(email.indexOf("@",atPos+1) > -1)        return false;
+		 if (periodPos == -1)        return false;
+		 if (atPos+1 == periodPos)        return false;
+		 if (periodPos+3 > email.length)        return false;
+		 return true;
+	}
+function isURL(argvalue) {
+
+  if (argvalue.indexOf(" ") != -1)
+    return false;
+  else if (argvalue.indexOf("http://") == -1)
+    return false;
+  else if (argvalue == "http://")
+    return false;
+  else if (argvalue.indexOf("http://") > 0)
+    return false;
+
+  argvalue = argvalue.substring(7, argvalue.length);
+ 
+  if (argvalue.indexOf(".") == -1)
+    return false;
+  else if (argvalue.indexOf(".") == 0)
+    return false;
+  else if (argvalue.charAt(argvalue.length - 1) == ".")
+    return false;
+
+  if (argvalue.indexOf("/") != -1) {
+    argvalue = argvalue.substring(0, argvalue.indexOf("/"));
+    if (argvalue.charAt(argvalue.length - 1) == ".")
+      return false;
+  }
+
+  if (argvalue.indexOf(":") != -1) {
+    if (argvalue.indexOf(":") == (argvalue.length - 1))
+      return false;
+    else if (argvalue.charAt(argvalue.indexOf(":") + 1) == ".")
+      return false;
+    argvalue = argvalue.substring(0, argvalue.indexOf(":"));
+    if (argvalue.charAt(argvalue.length - 1) == ".")
+      return false;
+  }
+
+  return true;
+
+}	
+	
+function validateform()
+{ 
+//alert ("ashish");
+var errmsg= "";
+if(document.setting_form.txtsetfromname.value=="")
+  {
+  {/literal}
+  errmsg=errmsg + "{$smarty.const.BLANK_IN_NAME_FIELD_NOT_ALLOWED}.\n";
+  {literal}
+  }
+if(!(validateEmail(document.setting_form.txtsetfromemail.value)))
+  {
+ {/literal}
+  errmsg= errmsg +  "{$smarty.const.NOT_VALID_EMAIL_IN_EMAIL_FIELD}.\n";
+  {literal}
+  }
+if(!(validateEmail(document.setting_form.txtadminmail.value)))
+  {
+ {/literal}
+  errmsg= errmsg +  "{$smarty.const.NOT_VALID_EMAIL_IN_ADMIN_EMAIL_FIELD}.\n";
+{literal}
+  }
+  if(!(isWords(document.setting_form.txtsetfromname.value)))
+  {
+{/literal}
+    errmsg= errmsg +  "{$smarty.const.ENTER_ONLY_TEXT_IN_NAME_FIELD}.\n";
+{literal}
+  }
+ if(!(isURL(document.setting_form.txtredirect.value)))
+ {
+{/literal}
+  errmsg= errmsg +  "{$smarty.const.ENTER_VALID_URL_IN_URL_FIELD}.\n";
+{literal}
+ }
+ if(!(isURL(document.setting_form.txtredirect_unsubscribe.value)))
+ {
+{/literal}
+  errmsg= errmsg +  "{$smarty.const.ENTER_VALID_URL_IN_UNSUBSCRIBE_URL_FIELD}";
+{literal}
+ }
+ 
+ if(document.setting_form.max_mail_limit.value=="")
+ {
+ {/literal}
+  errmsg= errmsg +  "{$smarty.const.BLANK_IS_NOT_ALLOWED_IN_MAXIMUM_MAIL_FIELD}.\n";
+{literal}
+
+ }
+ if(!(isInteger(document.setting_form.max_mail_limit.value)))
+ {
+{/literal}
+  errmsg= errmsg +  "{$smarty.const.ENTER_INTEGER_IN_MAXIMUM_MAIL_FIELD}.\n";
+{literal}
+ } 
+   if(errmsg=="")
+    { 
+	return true;
+	}
+	else
+	{
+	alert(errmsg);
+	return false;
+	}
+}		
+	
+
+
+
+{/literal}
+</script>
+
+</head>
+
+<form  name="setting_form"action="{$setting}"  method="post" onSubmit="return validateform();">
+  <br>
+  <table width="70%"  border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center" class="tblHead"><table width="100%"  border="0" align="center" cellpadding="1" cellspacing="1">
+        <tr>
+          <td bgcolor="#FFFFFF"><table width="100%"    border="0" cellpadding="4" cellspacing="1" align="center">
+            <tr align="center" class="tblHead">
+              <td height="25" colspan="4"  class="tblborder" ><strong>{$smarty.const.ADD_SETTING}</strong></td>
+            </tr>
+            <tr>
+              <td width="28%"><div align="right"><font color="#000000">{$smarty.const.SET_FROM_NAME}</font></div></td>
+              <td width="34%" align="center"><div align="left">
+                <input type="text" name="txtsetfromname" value="{$settingsrow[2]}"  size="30">
+              </div></td>
+              <td width="30%" align="right"><font color="#000000">{$smarty.const.ADD_UNSUBSCRIBER_LINK}</font></td>
+              <td width="8%" ><input type="checkbox" name="chkaddsublink" {if $settingsrow[6] eq 'on'}checked{/if}></td>
+            </tr>
+            <tr>
+              <td><div align="right"><font color="#000000">{$smarty.const.SET_FROM_EMAIL}</font></div></td>
+              <td align="center"><div align="left">
+                <input type="text" name="txtsetfromemail" value="{$settingsrow[3]}"  size="30" >
+              </div></td>
+              <td align="right"><font color="#000000">{$smarty.const.REPORT_TO_ADMIN}</font></td>
+              <td ><input type="checkbox" name="chkreporttoadmin" {if $settingsrow[7] eq 'on'}checked{/if}  ></td>
+            </tr>
+            <tr>
+              <td align="right"><font color="#000000">{$smarty.const.SET_ADMIN_EMAIL}</font></td>
+              <td><input type="text" name="txtadminmail" value="{$settingsrow[8]}"  size="30" ></td>
+              <td  align="center">&nbsp;</td>
+              <td ></td>
+            </tr>
+            <tr>
+              <td align="right"><font color="#000000">{$smarty.const.REDIRECT_TO}</font></td>
+              <td><input type="text" name="txtredirect"  size="30"  value="{$settingsrow[4]}"></td>
+              <td  align="center" colspan="2" ><div align="left">
+              </div></td>
+            </tr>
+            <tr>
+              <td align="right"><font color="#000000">{$smarty.const.UNSUBSCRIBE_URL}</font></td>
+              <td><input type="text" name="txtredirect_unsubscribe"  size="30"  value="{$settingsrow[5]}"></td>
+              <td>&nbsp;</td>
+              <td >&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="right"><font color="#000000">{$smarty.const.MAILS_PER_SCHEDULE}</font></td>
+              <td><input type="text" name="max_mail_limit"  size="30"  value="{$settingsrow[9]}"></td>
+              <td>&nbsp;</td>
+              <td >&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="4" align="center" ><input type="submit" name="savesetting" value="{$smarty.const.SAVE_SEETINGS}" ></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+  <input type="hidden" name="newcampaign" value="{$newcampaign}">
+	  {if $settingsrow ne ""}
+	  <input type="hidden" name="settingid" value="{$settingsrow[0]}">
+	  {/if}
+
+<input type="hidden" name="sec" value="settings">
+
+</form>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>{$smarty.const.AUTORESPONDER}::{$smarty.const.TITLE_HOME_PAGE}</title>
+
+
+
+
+</head>
+
+<body>
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="tblHead"><table width="100%"  border="0" cellspacing="1" cellpadding="0">
+      <tr>
+        <td bgcolor="#FFFFFF"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td colspan="2"><font color="#000000">{include file="top.tpl.html"}</font></td>
+            </tr>
+            <tr bgcolor="#FFFFFF">
+              <td height="1" colspan="2" valign="top"> </td>
+              </tr>
+            <tr>
+              <td width="14%" valign="top"><font color="#000000">{include file="campaign.tpl.html"}</font></td>
+              <td align="center" valign="top"><table width="100%"  border="0" align="center" cellpadding="3" cellspacing="0">
+                
+                <tr>
+                  <td height="25" align="center" class="tblHead"><strong>{$smarty.const.AUTO_RESPONDER}</strong></td>
+                </tr>
+                <tr>
+                  <td valign="top" align="center"><p align="left">&nbsp;</p>
+                    <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <th scope="row"><font color="#000000">{$smarty.const.AUTORESPONDER_HOME_INTRODUCTION}</font></th>
+                      </tr>
+                      <tr>
+                        <td scope="row"><font color="#000000">{include file="../00readme.html"}</font></td>
+                      </tr>
+                    </table>                    <p align="left">&nbsp;</p>
+                    <p>&nbsp;</p></td>
+                </tr>
+              </table></td>
+              </tr>
+            <tr>
+              <td colspan="2">{include file="bottom.tpl.html"}</td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

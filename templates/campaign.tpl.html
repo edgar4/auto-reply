@@ -1,0 +1,154 @@
+<head>
+<script language="javascript" type="text/javascript">
+{literal}
+function validateadd()
+{
+	if (document.camp_manage.txtnewcamp.value=="")
+	{
+    {/literal}
+    alert("{$smarty.const.ADD_CAMPAIGN_ERROR_MESSAGE}");
+    {literal}
+	}
+	else
+	{
+	//document.camp_manage.deletecamp.value="add";
+	document.camp_manage.submit();
+	}
+}
+function change_password()
+{
+{/literal}
+if(confirm("{$smarty.const.PASSWORD_CHANGE_MESSAGE}"))
+ {literal}
+{
+document.camp_manage.action="change_password.php";
+document.camp_manage.submit();
+}
+
+}
+
+function sign_out()
+{
+{/literal}
+if(confirm("{$smarty.const.LOGOUT_MESSAGE}"))
+{literal}
+{
+document.camp_manage.action="logout.php";
+document.camp_manage.submit();
+}
+else	
+{
+return false;
+}
+}
+function choose_mail()
+{ {/literal}
+if(confirm("{$smarty.const.MAIL_SETTINGS_MESSAGE}"))
+{literal}
+{
+document.camp_manage.action="mail_configuration.php";
+document.camp_manage.submit();
+}
+else	
+{
+return false;
+}
+}
+function delete_camp()
+{  {/literal}
+  if (confirm("{$smarty.const.DELETE_CAMPAIGN_MESSAGE}"))
+     {literal}
+     {
+      return true;
+	  }
+	  else
+	  return false;
+}
+
+{/literal}
+</script> 
+<title>{$smarty.const.TITLE_INC_LEFT}</title></head>
+<link href="../style.css" rel="stylesheet" type="text/css">
+<form  name="camp_manage"action="{$url}" method="post" >
+  <table width="200"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td background="images/menu.gif">
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td ><table cellpadding="0" cellspacing="0"   border="0"width="100%" align="center" >
+            <tr>
+              <td>
+                <table cellpadding="4" cellspacing="0"   border="0"width="100%" align="center">
+                  
+                  <tr valign="top" >
+                    <td  height="23" align="center" valign="top" class="tblHead"><strong>{$camp_name}</strong></td>
+                  </tr>
+                  <tr >
+                    <td height="36"  align="center" background="images/menu_head.gif"><div align="center" class="campheading"> </div></td>
+                  </tr>
+                  <tr >
+          <td  align="left"><span class="tblheading">{$smarty.const.YOUR_CAMPAIGNS}</span></td>
+        </tr>
+		{section name=i loop=$campaignrow}
+       
+        <tr valign="top" >
+          <td>
+            <input type="checkbox"  name="chk_{$campaignrow[i][0]}" value="{$campaignrow[i][0]}">
+            <a href="statistics.php?campid={$campaignrow[i][0]}&edit=1">{$campaignrow[i][1]}</a> </td>
+        </tr>
+        {/section}
+         <tr>
+          <td   align="left" class="tblheading"><font color="#000000">{$smarty.const.ADD_CAMPAIGN}</font></td>
+        </tr>
+        <tr>
+          <td align="center">
+            <div align="left">
+              <input type="text" name="txtnewcamp"  size="18">
+            </div></td>
+        </tr>
+        <tr>
+          <td height="30" align="left" valign="middle"><input type="button" name="savecamp"  value="     {$smarty.const.ADD_CAMPAIGN}    "onClick="javascript:validateadd();" ></td>
+        </tr>
+                </table>
+                <!--</form>-->
+              </td>
+            </tr>
+            <tr>
+              <td height="12"> </td>
+            </tr>
+            <tr>
+              <td>
+                <!-- <form action="{$url}" method="post">-->
+                <table cellpadding="1" cellspacing="0"   border="0"width="100%" align="center">
+                  
+                  <tr>
+                    <td height="30"  align="left" valign="middle"><input name="deletecamp"  type="submit" class="inputbutton"onClick="javascript: return delete_camp();" value="   {$smarty.const.DELETE_CAMPAIGN}  "></td>
+                  </tr>
+                  <tr>
+                    <td height="10"   align="left"><font color="#000000">&nbsp;</font></td>
+					
+                  <!-- <input type="hidden" name="deletecamp">-->
+                  </tr>
+				  <tr>
+				  <td align="left"><font color="#000000"> 
+				    <input type="button" name="change_pass" value="       {$smarty.const.CHANGE_PASS}       "onClick="javascript:change_password();">
+				  </font></td> 
+				  </tr>
+				  <tr>
+				    <td height="10" align="left"><font color="#000000">&nbsp;</font></td>
+				    </tr>
+				 <tr>
+				  <td align="left"><font color="#000000">
+				    <input name="signout" type="button" class="inputbutton" onClick="javascript:sign_out();" value="          {$smarty.const.SIGN_OUT}             ">
+				  </font></td></tr>
+                 <tr>
+                   <td height="36" align="left" background="images/menu_buttom.gif">&nbsp;</td>
+                 </tr>                 
+              </table></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</form>

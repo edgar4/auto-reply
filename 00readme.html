@@ -1,0 +1,373 @@
+
+<link href="style.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+<!--
+
+-->
+</style>
+<table width="90%"  border="0" align="center" cellpadding="4" cellspacing="4">
+  <tr>
+    <td width="98%"></td>
+  </tr>
+  <tr>
+    <td><font color="#0033FF"><strong>Quick Guide to using the Email Marketing 
+    Assistant</strong></font></td>
+  </tr>
+  <tr>
+    <td>Step 1: Create a campaign<br>
+    Step 2: Configure custom fields (Optional)<br>
+    Step 3: Configure settings for that campaign<br>
+    Step 4: Add messages in the message queue. Please make sure that there is 
+    ONE message with 0 (zero) delay.<br>
+    Step 5: Add some urls that you want to track and use in your emails 
+    (Optional)<br>
+    Step 6: Get the html code for your form and paste it on your websites<br>
+    That's it.<br>
+    <br>
+    It is assumed that you must have configured the cron or image tag to 
+    automatically send emails. Detailed instructions below</td>
+  </tr>
+  <tr>
+    <td>Please note that this read-me is for Pro version of Email Marketing 
+    Assistant. Hence some of the things will be irrelevant for the free version 
+    of the script.</td>
+  </tr>
+  <tr>
+    <td><div align="center" class="tblheading style6">
+      <div align="left" class="campheading">Admin Settings:</div>
+    </div></td>
+  </tr>
+ </tr>
+<tr><td class="tblborder"><b>IMPORTANT: Please read this before using this 
+  system.</b><br>
+  You will have to do one of the following things make this script send emails 
+  automatically.<p>1. Easiest, paste the following line of code on any web page 
+  that has a lot of traffic i.e. that is viewed at least once every day.<br>
+  &lt;img src='{$basepath}mail.php' width='0' height='0'&gt;<br>
+  You will have to edit the web page and then upload the page again on your 
+  server<br>
+  <br>
+  2. Or, if you have access to the control panel, you can put <strong>{$root_folder}/mail.php </strong> 
+  in your scheduled cron job</p>
+  <p>Please contact us if you need some help. Please remember, you get free 
+  support for 90 days.<br></td></tr>
+  <tr>
+    <td><font color="#0033FF"><strong>Detailed Help</strong></font></td>
+  </tr>
+  <tr>
+    <td>In the left menu of the page you will see a lot of menus. </td>
+  </tr>
+  <tr>
+    <td>Here You can do: </td>
+  </tr>
+  <tr>
+    <td><strong>Add New Campaign</strong> :This will add a new campaign. Simply enter your campaign name into the given textbox and click the add campaign button. </td>
+  </tr>
+  <tr>
+    <td> <p><strong>Delete an Existing Campaign</strong>:This will delete an existing campaign.If you want to delete an campaign then check it and click the delete campaign button.This will delete all the details corresponding to that campaign.</p>
+      </td>
+  </tr>
+  <tr>
+    <td><b>To Work with an existing Campaign</b>, simply click on that campaign 
+    and all the corresponding menu will appear on the right hand side of the 
+    page.</td>
+  </tr>
+  <tr>
+    <td><strong>Modify  Password.</strong> From here you can change your email 
+    id and password.</td>
+  </tr>
+  <tr>
+    <td><p><strong>Email Settings</strong>:This option allows you to set the way 
+    your emails will be sent. The available options are:
+     <li><strong>PHP Mail Function:</strong>Here the mail is send through simple mail method.</li>
+     <br>     <li><strong>SMTP Mail:</strong>If you choose the Smtp mail settings then you have to set the smtp server settings like SmtpSever name, Smtp Port, userid and password if authentication is required. </li>
+     <br>     <li><strong>Sendmail:</strong>Basically this method is used if user want to send mails through 
+    sendmail file. Here user has to set the  path of that file. </li>
+     <br>    <li>By default PHP mail function is set so if you want to change the mail settings then you can change it.</li></td>
+  </tr>
+  <tr>
+    <td height="27"><span class="campheading"><strong>Different Modules: </strong></span></td>
+  </tr>
+  <tr>
+    <td height="27"><div align="center" class="mainheadings"><strong>Statistics Menu: </strong></div></td>
+  </tr>
+  <tr>
+    <td height="95">      <p>You can get a summary of the campaign here.. Here is the details of terms  used in the module. </p>
+      <p><strong> Total Subscriptions:</strong> It indicates total number of subscribers of the particular campaign.</p>
+    <p><strong> Active: </strong>It indicates total number of active subscribers of the particular campaign.</p>
+    <p><strong> Inactive: </strong>It indicates total number of inactive subscribers of the particular 
+    campaign. If any subscriber unsubscribe the campaign services then he/she would not get any further mails after clicking the 
+    unsubscribe link. For inactive subscriber the status becomes zero. so they can be identified easily. </p>
+    <p><strong> Subscriptions by Form:</strong> It indicates today's count of the  number of subscribers 
+    who joined this campaign using the web form. </p>
+    <p><strong> Subscriptions by Import: </strong>It indicates today's count of subscribers 
+    who were added by the admin. </p>    </td>
+  </tr>
+  <tr>
+    <td height="27"></td>
+  </tr>
+  <tr>
+    <td height="27"><div align="center" class="mainheadings"><strong>Settings Menu:</strong></div></td>
+  </tr>
+  <tr>
+    <td height="50"><p>When you create a new campaign you have to make proper settings for that campaign.
+        <br>
+    When you click the setting menu a form opens. Here you have to fill all the fields. <br>
+        These fields are required to sending mail to your subscribers. 
+</p>
+     
+    
+    </td>
+  </tr>
+  <tr>
+    <td> <p><strong>"From" Name: </strong>This is the name that is used for 
+    sending emails of this campaign<strong>.</strong></p>
+    <p><strong>"From" Email: </strong>This will be the sender's email id.</p>
+    <p><strong>"Admin" Email:</strong> This email id is used to send back the confirmation report to the admin that a new subscriber has been added and the details of that new subscriber is sent to the admin along with the confirmation report.</p>
+    <p><strong>Redirect After Registration:</strong> Here the location is specified to which the subscriber has to redirected after successful subscription. </p>
+    <p><strong>Redirect After Unsubscribe:</strong> When any subscriber want to unsubscribe and click the unsubscribe link in the mail then 
+    this is the url where he is redirected after the unsubscription.</p>    <p><strong>Add 
+    Unsubscribe Link:</strong> when this checkbox is checked then an unsubscribe link is also added 
+    at the bottom of each message. </p>
+    <p><strong>Send Report To Admin : </strong>When this checkbox is checked then the confirmation report is send to admin. </p>
+    <p><font color="#000000"><b>Display Instruction to configure RSS Before 
+    Redirecting</b>: If this is selected then the user is displayed instructions 
+    to configure RSS immediately after they fill the subscription form.<br>
+    If this is not selected then the user is redirected to the Redirect URL that 
+    you had mentioned earlier.</font></p></td>
+  </tr>
+  <tr>
+    <td> <p></p>    </td>
+  </tr>
+  <tr>
+    <td><div align="center" class="mainheadings"><strong>Custom Field Menu:</strong></div></td>
+  </tr>
+  <tr>
+    <td>Here you can add custom fields which helps you to get extra information from the subscriber while they fill the subscription form. Here you can use four types of custom fields like:  </td>
+  </tr>
+  <tr>
+    <td><p><strong>Add Custom Field :</strong> Here you can add custom fields like Address, Status, Contact No etc 
+    for the subscription form. For each field you can take the field type as given in the  field type list. Here 
+    are the details of various field types and way of entering default value in these custom fields.
+      <li> <strong>TextBox: </strong>This displays a simple text area to enter 
+      one line of input.
+<br>      <li><strong>TextArea: </strong>This displays a large text area where 
+    the users can add multiple lines of text..</li>
+<br>       <li><strong>RadioButton: </strong>This is used to display an option 
+    button i.e. the user has to select one of the several options. if you want to 
+    provide more than two values for RadioButton then you have to separate these value by the semicolon(;) 
+    e.g. option1;option2;option3.</li>
+<br>      <li><strong>CheckBox:</strong> This is used to display multiple 
+    options in checkbox, when you want your users to select more than one 
+    options. If you want to provide more than two values for CheckBox then you have to separate these value by the semicolon(;) 
+    e.g. choice1;choice2;choice3.</li>
+  
+   <br>      <li><strong>ComboBox: </strong>This is used to display a drop down 
+    list. If you want to show more than two values for ComboBox then you have to separate these value by the semicolon(;)
+    <br>
+    <br>
+     For example,
+    if You want to add 2 or more than 2 fields then put a ; sign between the two values, Like field1;feild2;feild3</p>     </td>
+  </tr>
+  <tr>
+    <td><p><strong> Edit Custom Field : </strong>Once You have created the custom field and if you want to edit custom field then simply click the edit link and you can update the custom field.</p>
+      <p>Similarly, you can delete any custom field, But be aware that this will delete all the records of that particular field. </p>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td><div align="center" class="mainheadings"><strong>Html Code Menu: </strong></div></td>
+  </tr>
+  <tr>
+    <td><p>After adding custom fields, you get an html code for using in your 
+    subscription.</p>
+    <p>You can paste this html code on your website, emails, newsletters, ebooks, 
+    pop up windows, hover ads etc.</p>
+    <p>This code will create a subscription form. When Subscribers fill and submit the form, 
+    their details will be stored in the the database and emails are sent to them 
+    at the interval defined by you.</p>
+    <p>If you had selected the option to <font color="#000000">&quot;Display 
+    Instruction to configure RSS Before Redirecting&quot; then the user will be 
+    redirected to the instructions for configuring the RSS feed of their email 
+    otherwise, they are redirected to the redirection url that you had specified 
+    earlier.</font> </p></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td><div align="center" class="mainheadings"><strong>Queue Menu:</strong></div></td>
+  </tr>
+  <tr>
+    <td><p> In queue menu you can create the mails which will delivered to your subscribers 
+    in queue format i.e. one by one. 
+  <br>
+    Here the mails are put under a queue and delivered to the subscribers according to the delay set by the administrator.<br>
+    Please note that the delay is in days so if the delay is 2 it means that the 
+    email will be sent two days after subscription<br>
+    If the delay is zero (0), the email will be sent immediately after 
+    subscription.</p>
+      <p><strong>Personalization:</strong> Here you can personalize the mails so that each subscriber get the mail with his own name and other details. It will put a good impression on the subscribers. Choose from numerous personalization variables to craft a custom message for each subscriber. </p>
+      <p><strong>Message Format: </strong>This option allows you to send mail in according to your choice. here you can select either Html format or Text format. </p>
+      <p><strong>Delay</strong>: This is the delay in days for this email from 
+      the date of subscription of the user.<br>
+      The mail with zero delay is delivered immediately to new subscribers who 
+      subscribe by filling the subscription form. 
+      <br>
+      Suppose you want a five day course, then your first chapter will be with 
+      zero delay, second with 1 delay, third with 2 delay etc<br>
+      <br>
+      Warning: Please make sure that you have a ZERO delay email in each 
+      campaign.. </p>
+      <p><strong>Message Sent: </strong>This field shows that how many times the particular message has been sent.</p>
+    <p><strong> Message Read: </strong>This field will show the statistics that how many subscriber read that message.
+    <br>
+    Please note that this system uses invisible images to track the read 
+    receipt. This is not a very accurate system because many mail clients 
+    disable images of the mail. <br>
+    This figure is not very accurate so please use it accordingly.</p>
+    <p><strong> Message Read Online: </strong>This field will show the statistics that how many subscriber read that message by visiting on the 
+    message page on your website. This figure is pretty accurate.</p></td>
+  </tr>
+  <tr>
+    <td> </td>
+  </tr>
+  <tr>
+    <td><div align="center" class="mainheadings"><strong>Scheduled Menu:</strong></div></td>
+  </tr>
+  <tr>
+    <td><p>In Scheduled menu you can create the mails which will delivered to your subscribers 
+    at a scheduled time.<br>
+    This is the place to create announcements, product launches etc.</p>
+      <p>The mail created in that section will delivered to all the active subscribers of the current campaign 
+      at the specified time.</p>
+      <p>The first screen displays only the pending messages. The past messages 
+      can be seen by clicking the &quot;Show All Message&quot; link.</p>
+      <p><strong>How to Schedule the message: </strong>Once you created the mail then you can schedule it using the 
+
+
+ calendar. You can select the date and time then click the scheduled messages 
+      button. <br>
+      Warning: It is necessary for you to click the Scheduled Message button to 
+      correctly schedule the message.<br>
+      <br>
+      <strong> Personalization :</strong>Here you can 
+
+
+ personalize
+
+ the mails so that each subscriber get the mail with his own name and other 
+
+
+ details
+
+.It will put a good impression on the subscribers.</p>            
+      <p><strong>Show Pending Message: </strong>This link will show all the pending messages. By default pending message is 
+      shown on the screen.</p>
+      <p><strong>Show All Message: </strong>This Link will show all the messages including delivered as well as pending messages.</p>
+      <p><strong> Message Sent: </strong>This field shows that  the count of how 
+      many times this email has been sent i.e. how many people were sent this 
+      email. </p>
+      <p><strong> Message Read: </strong>This field will show the count of how many subscriber read that message. </p>
+      <p><strong> Message Read Online: </strong>This field will show the count 
+      of how many subscriber read that message by visiting on the server side page. </p>
+      <p><br>  
+      </p></td>
+  </tr>
+  <tr>
+    <td> </td>
+  </tr>
+  <tr>
+    <td><div align="center" class="mainheadings"><strong>Broadcast Menu:</strong></div></td>
+  </tr>
+  <tr>
+    <td><p> In Broadcast menu you can send the instant mails to your subscribers.
+    <br>
+    The mails are delivered 
+
+
+ instantly
+
+ to all the subscribers whom you send this mail. </p>
+      <p><strong>Personalization:</strong> Here you can personalize the mails so that each subscriber get the mail with his own name and other details.It will put a good impression on the subscribers. </p>
+      <p><strong>Message Format: </strong>This option allows you to send mail  according to your choice. Here you can select either 
+      HTML format or Text format. </p>      
+      <p><strong>Add Recipient: </strong>When you click this link a new window is opened which contains the list of all the active subscribers of that campaign. Here you can simply select the email id of subscribers 
+      whom you want to send the message.</p>
+    <p><strong>View Messages: </strong>This link shows you the details of all the broadcast messages along with the subject, date of message etc, You can view the details of each message by simply clicking the link in each message.</p>
+   </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="center"><span class="mainheadings">Subscribers Menu:</span></div></td>
+  </tr>
+  <tr>
+    <td><p>Here you can manage the subscribers of your campaign.</p>
+    <p>This section  provides you the facility of editing a existing subscriber, add new subscriber through Import means simply by putting the name and email id you can add an subscriber. Also you can search any subscribers details by its name or email id. </p>
+    <p><strong>Search Subscriber: </strong>Here you can search the existing subscriber either by its name or email id.
+    <br>
+    You can use part of the name to search the subscribers<br>
+    You must use complete email id to search the users.</p>
+    <p><strong>Add New Subscriber: </strong>This option allows you to add new subscriber. 
+    <br>
+    You can use this area to import new subscribers to your campaign.<br>
+    <br>
+    Please note that zero delay emails will not be sent to the users who have 
+    been subscribed using import. They will receive all the other emails.<br>
+    <br>
+    You will have to have one subscriber info in each line.<br>
+    For each subscriber, you can separate the name and email using | e.g.<br>
+    User One|email1@email.com<br>
+    User Two|email2@email.com etc<br>
+    <br>
+    If you did not enter any name then system automatically store its name as friend. 
+    <br>
+    If you enter a duplicate email id which already exist in the current campaign list then it will give a error message.</p>
+    <p><strong>Edit Subscribers: </strong>This option allows you to update the subscribers details. Also if you add any new subscriber by import then here you can insert the additional details of the subscribers.</p>
+    <p><strong>Mails: </strong>This option allows you to see  the details of mails 
+    sent to each subscriber. Here the complete record of any subscriber can be viewed.<br>
+&nbsp;</p>
+    </td>
+  </tr>
+  <tr>
+    <td> </td>
+  </tr>
+  <tr>
+    <td><div align="center" class="mainheadings"><strong>Tracking Menu:</strong></div></td>
+  </tr>
+  <tr>
+    <td><p>This section  provides a way of manage the tracking of links. Here you can 
+    categorize the different links group wise. <br>
+    You can use this links inside your mail by selecting those links from drop 
+    down list that displays the personalization fields. </p>
+      <p><strong>Add New Group: </strong>This option allows us to create a new group. </p>
+      <p><strong>Add New Links: </strong>This option allows us to create  new 
+      tracking links. <br>
+      You will have to enter a name of the link (This is for your reference only 
+      and can be anything)<br>
+      Then you will have to select a group for this link<br>
+      Then you will have to give the actual redirection url i.e. the url that 
+      you want your users to see.</p>
+    <p><strong>Get Link Code: </strong>If you want to use this link manually, 
+    you can use &quot;Get Code&quot; to get the link code. You can use this link on your 
+    websites, emails etc. It will automatically track the clicks to that link.<br>
+    Please note that if you use this link from outside this script such as your 
+    personal email etc, then the email id of the person clicking the link will 
+    not be available.</p>
+    <p><strong>Total  clicks: </strong>This field will show the count of how many times that link is clicked.</p>    <p><strong>Unique clicks: </strong>This field will show the 
+    count of how many times that link was clicked by a unique person.</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><p class="style1"><strong>Getting Help </strong><br />
+  Please contact us at <a href="mailto:edgarchris4@gmail.com ">edgarchris4@gmail.com </a> for any help during installation, customization and usage. We will be happy to help you. </p></td>
+  </tr>
+  </table>

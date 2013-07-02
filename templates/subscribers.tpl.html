@@ -1,0 +1,71 @@
+<head>
+<link href="../style.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript">
+{literal}
+function validateForm()
+{
+//alert("ashsih");
+if(document.add_subscriber.subscribers.value=="")
+{
+{/literal}
+alert("{$smarty.const.BLANK_NAME_MAIL_NOT_SAVED}");
+{literal}
+return false;
+}
+}
+{/literal}
+</script>
+
+
+<style type="text/css">
+<!--
+
+-->
+</style>
+</head>
+<form  name="add_subscriber" method="post">
+ <br>
+ <table width="70%" align="center">
+   <tr>
+     <td height="25" class="tblheading"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+       <tr>
+         <td class="tblHead"><table width="100%"  border="0" cellpadding="2" cellspacing="1">
+           <tr>
+             <td bgcolor="#FFFFFF"><table width="100%"    border="0"height="334" cellpadding="3" cellspacing="0" align="center">
+               <tr align="center" >
+                 <td height="25" colspan="4" class="tblHead" ><strong >{$smarty.const.ADD_SUBSCRIBERS}</strong></td>
+               </tr>
+               <tr valign="top">
+                 <td height="36" valign="top" ><div align="center"><font color="#000000">{$smarty.const.TEXT_FREE_VER1} <br>
+        {$smarty.const.TEXT_FREE_VER2}</font></div></td>
+               </tr>
+               <tr>
+                 <td align="center" ><textarea rows="8" cols="50" name="subscribers" id="subscribers"></textarea>                 </td>
+               </tr>
+			   <tr><td height="30"  class="campheading" align="center">{if $saved eq "true"}{$smarty.const.RECORDS_SAVED}{/if} {if $saved eq "false"} {$smarty.const.RECORDS_NOT_SAVED} {/if}</td>
+</tr>
+               <tr>
+                 <td colspan="2" align="center" ><input type="submit" name="savesetting" value="{$smarty.const.SAVE_SUBSCRIBERS}" onClick="javascript:validateForm();">
+                   </td>
+               </tr>
+               <tr>
+                 <td colspan="2" align="center" ><span class="style1"><a href="manage_subscriber.php?sec=manage_subscriber"><img src="images/BACK.JPG" width="46" height="20" border="0"></a></span> </td>
+               </tr>
+               <tr>
+                 <td colspan="2" align="center" >&nbsp;</td>
+               </tr>
+             </table></td>
+           </tr>
+         </table></td>
+       </tr>
+     </table></td>
+   </tr>
+ </table>
+  <p>
+    <input type="hidden" name="sec" value="manage_subscriber">
+    <input type="hidden" name="newcampid" value="{$campid}">
+    <input type="hidden" name="hid1" value="123">
+    <input type="hidden" name="subscriberform" value="yes">	
+  </p>
+</form>
+

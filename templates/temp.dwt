@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>index</title>
+<!-- TemplateEndEditable --><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+</head>
+
+<body bgcolor="#969787">
+<table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="24"><img src="file:///E|/Pushpendra/wine/images/1.jpg" width="24" height="19"></td>
+    <td width="702" background="file:///E|/Pushpendra/wine/images/top.jpg">&nbsp;</td>
+    <td width="24"><img src="file:///E|/Pushpendra/wine/images/2.jpg" width="24" height="19"></td>
+  </tr>
+  <tr>
+    <td background="file:///E|/Pushpendra/wine/images/left.jpg">&nbsp;</td>
+    <td><img src="file:///E|/Pushpendra/wine/images/header.jpg" width="750" height="200"></td>
+    <td background="file:///E|/Pushpendra/wine/images/right.jpg">&nbsp;</td>
+  </tr>
+  <tr>
+    <td background="file:///E|/Pushpendra/wine/images/left.jpg">&nbsp;</td>
+    <td background="file:///E|/Pushpendra/wine/images/menu.jpg" bgcolor="#FFFFFF">&nbsp;</td>
+    <td background="file:///E|/Pushpendra/wine/images/right.jpg">&nbsp;</td>
+  </tr>
+  <tr>
+    <td background="file:///E|/Pushpendra/wine/images/left.jpg">&nbsp;</td>
+    <td bgcolor="#FFFFFF"><!-- InstanceBeginEditable name="EditRegion3" --><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="23%">&nbsp;</td>
+        <td width="77%">&nbsp;</td>
+        </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+      <tr>
+        <td colspan="2" background="file:///E|/Pushpendra/wine/images/buttombg.jpg">&nbsp;</td>
+        </tr>
+    </table></td>
+    <td background="file:///E|/Pushpendra/wine/images/right.jpg">&nbsp;</td>
+  </tr>
+  <tr>
+    <td><img src="file:///E|/Pushpendra/wine/images/3.jpg" width="24" height="19"></td>
+    <td background="file:///E|/Pushpendra/wine/images/buttom.jpg">&nbsp;</td>
+    <td><img src="file:///E|/Pushpendra/wine/images/4.jpg" width="24" height="19"></td>
+  </tr>
+</table>
+</body>
+</html>

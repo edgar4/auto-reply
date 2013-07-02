@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="../style.css" rel="stylesheet" type="text/css" >
+<link href="style.css" rel="stylesheet" type="text/css" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>{$smarty.const.AUTORESPONDER}::{$smarty.const.TITLE_HOME_PAGE}</title>
+<script language="javascript" type="text/javascript">
+{literal}
+	function validateEmail(affiliate_email)
+	{
+   	    mErr = "";
+		if (validEmail(affiliate_email) == false || validEmail(affiliate_email) == null || validEmail(affiliate_email) == ""){
+  		mErr += "Enter Valid Email\n";
+	}
+		if (mErr=='')
+			return true;
+		else
+		{
+			 return false;
+		}
+	}
+
+	function validEmail(email)
+ 	{
+		 var exclude=/[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/;
+		 var checkend=/\.[a-zA-Z]{2,4}$/;
+		
+		 if((email.search(exclude) != -1) || (email.search(checkend) == -1))        return false;
+		
+		 atPos = email.indexOf("@",0);
+		 pPos1 = email.indexOf(".",0);
+		 periodPos = email.indexOf(".",atPos);
+		 pos1 = pPos1;
+		 pos2 = 0;
+		 while (pos2 > -1)
+		 {
+			  pos2 = email.indexOf(".",pos1+1);
+			  if (pos2 == pos1+1)  return false;
+			  else  pos1 = pos2;
+		 }
+		 if (atPos == -1)        return false;
+		 if (atPos == 0)        return false;
+		 if (pPos1 == 0)        return false;
+		 if(email.indexOf("@",atPos+1) > -1)        return false;
+		 if (periodPos == -1)        return false;
+		 if (atPos+1 == periodPos)        return false;
+		 if (periodPos+3 > email.length)        return false;
+		 return true;
+	}
+	
+function validateform()
+{ 
+
+var errmsg= "";
+if(!(validateEmail(document.login_frm.txtlogin.value)))
+  {
+ errmsg= errmsg +  "Please enter valid email id";
+  }
+ if(document.login_frm.txtpass.value=="")
+  {
+ 
+  errmsg=errmsg + "Password is required\n";
+ 
+  }
+
+if(errmsg=="")
+    { 
+	return true;
+	}
+	else
+	{
+	alert(errmsg);
+	return false;
+	}
+}			
+	
+	
+	{/literal}
+	</script>
+</head>
+
+<body>
+
+<table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="tblHead"><table width="100%"  border="0" cellspacing="1" cellpadding="0">
+      <tr>
+        <td bgcolor="#FFFFFF"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td colspan="2"><font color="#000000">{include file="top.tpl.html"}</font></td>
+            </tr>
+            <tr bgcolor="#FFFFFF">
+              <td height="1" colspan="2" valign="top"> </td>
+              </tr>
+            <tr>
+              <td width="14%" valign="top">&nbsp;</td>
+              <td align="center" valign="top"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                
+                <tr>
+                  <td height="25" align="center" >&nbsp;</td>
+                </tr>
+                <tr>
+                  <td valign="top" align="center">
+                <form  name="login_frm"action="{$url}" method="post"  onSubmit="return validateform();">
+                      <table width="70%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th scope="row"><table width="82%" height="60" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td  height="40" align="center" valign="bottom"class="campheading" scope="col">{$errmsg1}</td>
+                        </tr>
+                        <tr>
+                          <td align="center"class="campheading" scope="col"><div align="center">{$errmsg2}</div></td>
+                        </tr>
+                      </table></th>
+                    </tr>
+                    <tr>
+                      <th scope="row"><table width="50%" border="0" align="center"  cellpadding="2" cellspacing="1" class="tblborder">
+                        <tr align="center">
+                          <td height="25" colspan="2"class="tblHead"><strong >{$smarty.const.HEAD_LOGIN}</strong></td>
+                        </tr>
+                        <tr>
+                          <td height="34" align="right"><font color="#000000">{$smarty.const.LOGIN_NAME}</font></td>
+                          <td align="center"><input type="text" name="txtlogin" ></td>
+                        </tr>
+                        <tr>
+                          <td align="right"><font color="#000000">{$smarty.const.LOGIN_PASSWORD}</font></td>
+                          <td align="center"><input type="password" name="txtpass" ></td>
+                        </tr>
+                         <tr><td></td>
+                           <td><font color="#000000"><a href="forgot_pass.php">Forgot Password</a></font></td>
+                           </tr>
+                        <tr>
+                          <td height="36" colspan="2" align="center" ><input name="savesetting" type="submit" value="{$smarty.const.LOGIN_BUTTON}"></td>
+                        </tr>
+                      </table></th>
+                    </tr>
+                  </table>  </form>                <p align="left">&nbsp;</p>
+                  <p align="left">&nbsp;</p>
+                  <p align="left">&nbsp;</p>
+                  <p align="left">&nbsp;</p>
+                  <p align="left">&nbsp;</p>
+                  <p align="left">&nbsp;</p>
+                  <p>&nbsp;</p></td>
+                </tr>
+              </table></td>
+              </tr>
+            <tr>
+              <td colspan="2">{include file="bottom.tpl.html"}</td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

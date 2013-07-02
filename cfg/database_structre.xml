@@ -1,0 +1,38 @@
+
+		<table name='auto_campaign' alias='CAMPAIGN_TABLE'>
+
+			<!-- Primary key -->
+			<column type='int' PrimaryKey='true'>
+				id
+			</column>
+			
+			<!-- -->
+			<column type='varchar(255)'>campname</column>
+			<column type='datetime'>startdate</column>
+		</table>
+	<!--
+	CREATE TABLE auto_settings (
+  id int(11) NOT NULL auto_increment,
+  campid int(11) NOT NULL default '0',
+  fromname varchar(255) default NULL,
+  fromurl varchar(100) default NULL,
+  redirecttourl varchar(255) default NULL,
+  setunsubscribelink varchar(10) default NULL,
+  reporttoadmin varchar(10) default NULL,
+  PRIMARY KEY  (id)
+) TYPE=MyISAM;
+ -->
+
+		<table name='auto_settings' alias='CAMPAIGN_TABLE'>
+
+			<!-- Primary key -->
+			<column type='int' PrimaryKey='true'>
+				id
+			</column>
+			<column type='int'>campid</column>
+			<column type='varchar(255)'>fromname</column>
+			<column type='varchar(100)'>fromurl</column>
+			<column type='varchar(255)'>redirecttourl</column>
+			<column type='varchar(10)'>setunsubscribelink</column>
+			<column type='varchar(10)'>reporttoadmin</column>
+		</table>

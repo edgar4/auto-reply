@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<link href="style.css" rel="stylesheet" type="text/css" >
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>{$smarty.const.AUTORESPONDER}::{$smarty.const.TITLE_BROADCAST_MESSAGE}</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+
+
+<!--
+
+//-->
+
+<link href="../style.css" rel="stylesheet" type="text/css">
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3">{include file="top.tpl.html"}</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top">{include file="campaign.tpl.html"}</td>
+    <td width="100%" valign="top" align="left"><table width="100%" align="center"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>{include file="menu.tpl.html"}</td>
+      </tr>
+      <tr>
+        <td height="27" align="center" valign="top"><!-- InstanceBeginEditable name="EditRegion3" -->
+       {literal}
+	   <script language="javascript" type="text/javascript">
+	   function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_validateForm() { //v4.0
+  var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+  for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=MM_findObj(args[i]);
+    if (val) { nm=val.name; if ((val=val.value)!="") {
+      if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+        if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+      } else if (test!='R') { num = parseFloat(val);
+        if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
+        if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+          min=test.substring(8,p); max=test.substring(p+1);
+          if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+    } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+  } if (errors) {
+                  return false;
+				}
+				else
+				{   
+				   return true;
+		         }
+ // document.MM_returnValue = (errors == '');
+}
+	   
+              function validateForm()
+				  {
+				      errmsg="";
+					  if(!(MM_validateForm('reciepentsname','','RisEmail')))
+					  {
+                          {/literal}
+					  errmsg= errmsg +  "{$smarty.const.NOT_VALID_EMAIL_IN_EMAIL_FIELD}.\n";
+                          {literal}
+					  }
+					 // if(!(validateEmail(document.form2.reciepentsname.value)))
+                       //{
+                      // errmsg= errmsg +  " Enter Valid Email in Email Field. \n";
+                      // }
+				      
+					   if(errmsg=="")
+                       { 
+							if((document.form2.txtsubject.value=="")||(document.form2.textbody.value==""))
+				  			{
+							   
+								if((document.form2.txtsubject.value=="")&&(document.form2.textbody.value==""))
+								    {    {/literal}
+							    		if(confirm("{$smarty.const.EMPTY_SUBJECT_AND_EMPTY_BODY}"))
+										{literal}
+                                         {
+											return true;
+										}
+										else
+										{
+										   return false;
+										}
+									}
+								else
+								{
+								     if(document.form2.txtsubject.value=="")
+								      {      {/literal}
+											  if(confirm("{$smarty.const.EMPTY_SUBJECT}"))
+                                              {literal}
+											  
+                                                {
+											   return true;
+											  }
+											  else
+											  {
+											  return false;
+											  }
+									   }
+								    else
+								     {      {/literal}     
+										  if(confirm("{$smarty.const.EMPTY_BODY}"))
+                                             {literal} 
+										  {
+										   return true;
+										  }
+										  else
+										  {
+										  return false;
+										  }
+								      }
+								  }
+								}else
+								  {
+								  return true;
+								  }
+											  
+						}else
+	                    {
+						alert(errmsg);
+	                    return false; 
+	                    }
+					}	
+	   
+	   
+	   
+	    function selectforsubject()
+             {
+              //alert(document.form2.custom_fields.value);
+			  document.form2.txtsubject.value+=document.form2.custom_fields.value;
+              //document.form2.action="view_all_subscribers.php";
+              //sdocument.form2.submit();
+             }	
+
+
+				function selectforbody()
+             {
+              document.form2.textbody.value+=document.form2.custom.value;
+              //document.form2.action="view_all_subscribers.php";
+              //document.form2.submit();
+             }	 
+			 function showprogress()
+            {
+			//alert ("Alert 01");
+			var objShow = document.getElementById('progress');
+			var objHide = document.getElementById("form2");
+			//alert ("Alert 02");
+			objHide.style.display = "none";
+			objShow.style.display = "inline";
+			} 
+		</script>
+		{/literal}
+		 <br>
+		<table width="70%" border="0" align="center" cellpadding="1" cellspacing="0" class="tblHead">
+            <tr>
+              <td><table width="100%"  border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#FFFFFF">
+                <tr>
+                  <td><form name= "form2" method="post" enctype="multipart/form-data" onSubmit="return validateForm();">
+                    <table width="100%" align="center" cellpadding="2"	 cellspacing="0" >
+                      <tr align="center" class="tblHead">
+                        <td height="25" colspan="4" ><strong>{$smarty.const.BROADCAST_MESSAGE}</strong></td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" align="center" class="campheading">{if $send_status eq "true"}{$smarty.const.SENT_SUCCESS}{/if} {if $send_status eq "false"} {$smarty.const.SENT_FAILURE} {/if}</td>
+                        </tr>
+                      <tr>
+                        <td colspan="2" align="right"> <div align="left"><a href="broadcast_message_detail.php?sec=broadcast_message"><strong>{$smarty.const.VIEW_BRDMSG} </strong></a> <a href="#list" onclick="window.open('viewsubscribers.email.php', 'newwindow', config='height=500, width=400, toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, directories=no, status=no,checkbox=yes')"></a><font color="#000000">|</font><a href="#list" onclick="window.open('viewsubscribers.email.php', 'newwindow', config='height=500, width=400, toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, directories=no, status=no,checkbox=yes')"><strong> {$smarty.const.ADD_RECIPENT}</strong></a> </div>
+                                                  
+                          <div align="right"><a href="#list" onclick="window.open('viewsubscribers.email.php', 'newwindow', config='height=500, width=400, toolbar=no, menubar=no, scrollbars=yes, resizable=yes, location=no, directories=no, status=no,checkbox=yes')"></a></div></td>
+                        </tr>
+                      <tr>
+                        <td align="right"><font color="#000000"><p>{$smarty.const.TO_RECIPIENT}</p></font>
+                            <p>&nbsp; </p></td>
+                        <td ><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <th width="81%" align="left" scope="row"><textarea name="reciepentsname" cols="50" rows="2" id="reciepentsname" readonly ></textarea></th>
+                              <td width="19%">&nbsp;</td>
+                            </tr>
+                        </table></td>
+                      </tr>
+                      <tr>
+                        <td align="right">&nbsp;</td>
+                        <td ><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="70%" align="right" scope="row"><font color="#000000">{$smarty.const.INSERT_INTO_SUBJECT}</font></td>
+							
+                            <td width="30%">
+                             
+             <select name="custom_fields" id="custom_fields"  onChange="javascript:selectforsubject();"> 
+                               <option value="" selected>#Select Keyword#</option>
+							   <option value="#Name#">#Name#</option>
+                              <option value="#EmailId#">#EmailId#</option>
+							 
+                             
+             
+             </select>
+                            </td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><font color="#000000">{$smarty.const.SUBJECT} </font></td>
+                        <td ><div align="left">
+                            <input type="text" name="txtsubject"  size="67" value="{$messagerow[2]}">
+                        </div></td>
+                      </tr>
+                      <tr>
+                        <td align="right"><font color="#000000">{$smarty.const.FORMATE}</font></td>
+                        <td><table width="30%"  border="0" cellspacing="1" cellpadding="0">
+                          <tr>
+                            <td width="22%"  align="right">
+                              <input name="msg_formate" type="radio" value="html">
+                            </td>
+                            <td width="13%" align="left"><font color="#000000">Html</font></td>
+                            <td width="36%" align="right"><input name="msg_formate" type="radio" value="text"></td>
+                            <td width="29%" align="left"><font color="#000000">Text</font></td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                      <tr>
+                        <td  valign="top" align="right">&nbsp;</td>
+                        <td ><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="70%" align="right" scope="row"><font color="#000000">{$smarty.const.INSERT_INTO_BODY}</font></td>
+                            <td width="30%">
+			    <select name="custom" id="custom" onChange="javascript:selectforbody();"  > 
+                              <option value="" selected>#Select Keyword#</option>
+							  <option value="#Name#">#Name#</option>
+							  <option value="#EmailId#">#EmailId#</option>
+							
+      		 </select></td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                      <tr>
+                        <td  valign="top" align="right"> <font color="#000000">{$smarty.const.BODY}</font></td>
+                        <td ><div align="left">
+                            <textarea name="textbody" cols="50" rows="8" >{$messagerow[3]}</textarea>
+                        </div></td>
+                      </tr>
+    {if $messagerow neq ""}
+    <tr>
+      <td><font color="#000000">{$smarty.const.UPLOADED_FILE}</font></td>
+      <td>{$messagerow[4]}</td>
+    </tr>
+    <input type="hidden" name="uploadedfile" value="{$messagerow[4]}" >
+    {/if}
+    <tr>
+      <td  align="right"><font color="#000000">{$smarty.const.FILE_TO_ATTACH}</font></td>
+      <td ><input type="file" name="msgfile"  size="54"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center" ><input type="submit" value="{$smarty.const.SEND_MESSAGE}" name="sendmsg" >
+          <input type="reset"  value="{$smarty.const.CANCEL_ALL}" name="deletemsg" ></td>
+    </tr>
+
+                    </table>
+                    <input type="hidden" name="mesageid" value="{$messagerow[0]}" >
+                    <input type="hidden" name="sec" value="broadcast_message" >
+                  </form>                    <p>&nbsp;</p>
+                    </td>
+                </tr>
+              </table></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        <!-- InstanceEndEditable --></td>
+      </tr>
+    </table></td>
+    <td width="0%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">{include file="bottom.tpl.html"}</td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

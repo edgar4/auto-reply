@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{$smarty.const.AUTO_RESPONDER}::{$smarty.const.FORGOT_PASSWORD}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="style.css" rel="stylesheet" type="text/css">
+ <script language="javascript" type="text/javascript">
+{literal}
+	  function validateEmail(affiliate_email)
+	{
+   	    mErr = "";
+		if (validEmail(affiliate_email) == false || validEmail(affiliate_email) == null || validEmail(affiliate_email) == ""){
+  		mErr += "Enter Valid Email\n";
+	}
+		if (mErr=='')
+			return true;
+		else
+		{
+			 return false;
+		}
+	}
+
+	function validEmail(email)
+ 	{
+		 var exclude=/[^@\-\.\w]|^[_@\.\-]|[\._\-]{2}|[@\.]{2}|(@)[^@]*\1/;
+		 var checkend=/\.[a-zA-Z]{2,4}$/;
+		
+		 if((email.search(exclude) != -1) || (email.search(checkend) == -1))        return false;
+		
+		 atPos = email.indexOf("@",0);
+		 pPos1 = email.indexOf(".",0);
+		 periodPos = email.indexOf(".",atPos);
+		 pos1 = pPos1;
+		 pos2 = 0;
+		 while (pos2 > -1)
+		 {
+			  pos2 = email.indexOf(".",pos1+1);
+			  if (pos2 == pos1+1)  return false;
+			  else  pos1 = pos2;
+		 }
+		 if (atPos == -1)        return false;
+		 if (atPos == 0)        return false;
+		 if (pPos1 == 0)        return false;
+		 if(email.indexOf("@",atPos+1) > -1)        return false;
+		 if (periodPos == -1)        return false;
+		 if (atPos+1 == periodPos)        return false;
+		 if (periodPos+3 > email.length)        return false;
+		 return true;
+	}
+	
+function validateform()
+{ 
+
+var errmsg= "";
+if(document.form1.txtemail.value=="")
+  {
+ 
+  errmsg=errmsg + " Emailid is required\n";
+ 
+  }
+if(!(validateEmail(document.form1.txtemail.value)))
+  {
+ errmsg= errmsg +  "Please enter valid email id";
+  }
+if(errmsg=="")
+    { 
+	return true;
+	}
+	else
+	{
+	alert(errmsg);
+	return false;
+	}
+}			
+	
+	
+	{/literal}
+	</script>
+
+
+</head>
+
+<body>
+<table width="70%"  border="0" align="center" cellpadding="4" cellspacing="1" class="tblborder">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <form name="form1" method="post" onSubmit="return validateform();">
+    <tr>
+      <td colspan="2"  height="20" align="center" class="tblHead"> <strong>{$smarty.const.FORGOT_PASSWORD}</strong></td>
+    </tr>
+    <tr>
+      <td  colspan="2" align="center" class="campheading" nowrap>{if $msg eq "true"}{$smarty.const.NOT_EXIST_USER}{/if} {if $msg eq "false"} {$smarty.const.MAIL_SEND_ACOUNT} {/if}</td>
+    </tr>
+    <tr>
+      <td wnowrap><div align="right"><strong>{$smarty.const.ENTER_EMAIL_ID}</strong></div></td>
+      <td >
+        <input name="txtemail" type="text" id="txtemail">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+          <input type="submit" name="Submit" value="Submit">
+      </div></td>
+    </tr>
+  </form>
+</table>
+
+</body>
+</html>

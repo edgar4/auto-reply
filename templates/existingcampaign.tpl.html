@@ -1,0 +1,18 @@
+<form  action="{$url}" method="post" >
+<table class="tblborder" cellpadding="0" cellspacing="0" align="center"  >
+<tr><td class="tblheading" colspan="4">{$smarty.const.ADD_EXISTING_CAMPAIGN}</td></tr>
+<tr valign="top"  class="tblborder">
+{assign var=x value=1}
+{section name=i loop=$existingcampaignrow}
+ <td  width="25%">
+	<a href="showcamp.php?campid={$existingcampaignrow[i][0]}&view=1">{$existingcampaignrow[i][1]}</a>
+    </td>
+	{if $x eq 4}
+    </tr><tr valign="top"  class="tblborder">
+	  {assign var=x value=1}
+	 {/if} 
+	 {assign var=x value=$x+1}
+  {/section}
+<!--</tr>-->
+ </table>
+</form>
